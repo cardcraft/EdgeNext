@@ -4,8 +4,8 @@
 // @version      0.0.1-A
 // @description  Adds tweaks to edgenuity in a more sneaky way
 // @author       Anon
-// @updateURL    https://github.com/cardcraft/EdgeNext/main/EdgeNext.js
-// @downloadURL  https://github.com/cardcraft/EdgeNext/main/EdgeNext.js
+// @updateURL    https://raw.githubusercontent.com/cardcraft/EdgeNext/main/EdgeNext.js
+// @downloadURL  https://raw.githubusercontent.com/cardcraft/EdgeNext/main/EdgeNext.js
 // @match        *://*.core.learn.edgenuity.com/*
 // @match        https://student.edgenuity.com/*
 // @grant        none
