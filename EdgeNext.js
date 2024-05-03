@@ -11,6 +11,8 @@
 // @grant        none
 // ==/UserScript==
 
+// Lots of this code is based off the legendary EdgenTweaks
+
 const version_num = "1.5.6";
 var $, jQuery;
 $ = jQuery = window.jQuery;
@@ -36,7 +38,20 @@ function autoadvance() {
 	}, Math.floor(Math.random() * 5000));
 }
 
+// Show Example Response
+function ShowExample() {
+    try {
+        window.frames[0].frames[0].document.getElementsByClassName("right-column")[0].children[0].style.display = "block"
+    } catch (TypeError) {}
+    try {
+        window.frames[0].frames[0].document.getElementsByClassName("left-column")[0].children[0].style.display = "block"
+    } catch (TypeError) {}
+}
+
+// The main loop that executes every 2 seconds
+
 function loop() {
 	autoadvance();
 	skipIntro();
+	ShowExample();
 }
