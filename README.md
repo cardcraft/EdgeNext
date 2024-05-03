@@ -1,10 +1,12 @@
 # EdgeNext
 
-## Psa! My reddit acct got banned :(
+![Simple blue header with NextEdge :) written on it and a disclaimer](Markdown/Banner.jpeg "header")
+
+#### Psa! My reddit acct got banned :(
 
 My reddit account got shadowbanned :(. I requested an appeal but until then r/nextedge and my account are dead
 
-If you have questions you can file an issue or dm me (still on reddit lol) at [@CardcraftOfReddit](https://www.reddit.com/user/CardcraftOfReddit/)
+If you have questions you can file an issue or dm me at Twitter(X??): [Here](https://twitter.com/cardcraft_dev)
 
 ### The New EdgeNext Userscript, By a Nerd for Nerds
 
