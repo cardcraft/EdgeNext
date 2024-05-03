@@ -1,12 +1,10 @@
 # EdgeNext
 
+## https://www.reddit.com/user/CardcraftOfReddit/
 
-#PSA!! Important
-
-My reddit account got shadowbanned :(. I requested an appeal but until then r/nexteedge and my account are dead
+My reddit account got shadowbanned :(. I requested an appeal but until then r/nextedge and my account are dead
 
 If you have questions you can file an issue or dm me (still on reddit lol) at [@CardcraftOfReddit](https://www.reddit.com/user/CardcraftOfReddit/)
-
 
 ### The New EdgeNext Userscript, By a Nerd for Nerds
 
