@@ -1,6 +1,6 @@
 # EdgeNext
 
-## https://www.reddit.com/user/CardcraftOfReddit/
+## Psa! My reddit acct got banned :(
 
 My reddit account got shadowbanned :(. I requested an appeal but until then r/nextedge and my account are dead
 
