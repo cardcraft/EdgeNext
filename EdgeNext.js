@@ -142,13 +142,6 @@ var Settings_html = `
 </html>
 `
 
-var version = "0.0.1"
-
-// Code to init the little ui
-if (localStorage.getItem("3") === "false") {
-	window.alert("EdgeNext is now loaded! Press Ctrl+Alt+A to access settings.\n\nAs Edgenuity detects changes to the page, it's the best way to interact.\n\nGot questions? Please DM me!\nTwitter: @cardcraft_dev\n\nI've put in a lot of effort to get the first update (0.0.1) out, and I'm excited to share it with you! I hope you guys enjoy using it :)")
-}
-
 // Shorcut to open settings popup
 document.addEventListener("keydown", function (event) {
 	if (event.ctrlKey && event.altKey && event.key === "a") {
