@@ -8,8 +8,8 @@ My reddit account got shadowbanned :(. I requested an appeal but until then r/ne
 
 If you have questions you can file an issue or dm me at Twitter(X??): [Here](https://twitter.com/cardcraft_dev)
 
-Firefox: <span style="color:Green">Working</span>
-Chromium (Chrome): <span style="color:Green">Working</span>
+Firefox: Working
+Chrome: Working
 
 ### The New EdgeNext Userscript, By a Nerd for Nerds
 
