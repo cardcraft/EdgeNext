@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         EdgeNext
 // @namespace    https://github.com/cardcraft/EdgeNext
-// @version      0.0.1-A
+// @version      0.0.2
 // @description  Adds tweaks to edgenuity in a more sneaky way
 // @author       Anon
 // @updateURL    https://raw.githubusercontent.com/cardcraft/EdgeNext/main/EdgeNext.js
@@ -170,6 +170,7 @@ function skipIntro() {
 		window.frames[0].document.getElementById("invis-o-div").remove();
 	} catch (TypeError) { }
 }
+
 
 // Auto Advance
 function autoadvance() {
