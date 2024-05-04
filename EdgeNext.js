@@ -136,7 +136,7 @@ var Settings_html = `
 			</svg>
 		</div>
 	</div>
-	<div style="position: absolute; bottom:10px; right:10px; fnot-size: 10px;">V0.0.1</div>
+	<div style="position: absolute; bottom:10px; right:10px; fnot-size: 10px;">V0.0.2</div>
 </body>
 
 </html>
