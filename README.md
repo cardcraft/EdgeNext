@@ -2,6 +2,12 @@
 
 ![Simple blue header with NextEdge :) written on it and a disclaimer](Markdown/Banner.jpeg "header")
 
+## Doesn't work on Chrome!
+
+After some reaserch I found out that chrome has some serious "security" and restricions on these scripts's access to the system. In order for it to ever work on chrome I (or someone) would have to write a Chrome plugin and get it verified by Google.
+
+**Unless Chrome changes things you can use Firefox or Chromium, The plugin is tested on FF**
+
 #### Psa! My reddit acct got banned :(
 
 My reddit account got shadowbanned :(. I requested an appeal but until then r/nextedge and my account are dead
@@ -9,7 +15,7 @@ My reddit account got shadowbanned :(. I requested an appeal but until then r/ne
 If you have questions you can file an issue or dm me at Twitter(X??): [Here](https://twitter.com/cardcraft_dev)
 
 Firefox: Working
-Chrome: Working
+Chrome: Broke :(
 
 ### The New EdgeNext Userscript, By a Nerd for Nerds
 
