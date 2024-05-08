@@ -41,3 +41,15 @@ It should be the same thing for every other manager ever made, but the script is
 ### Why Isn't It on Greasy Fork?
 
 Well, I tried, but no matter what I did, the site would just say I can't publish with a disposable email. I'm using a Gmail account, by the way.
+
+### Why should you trust me? / Licensing
+
+![GPL3 License Logo](Markdown/gplv3-127x51.png)
+
+EdgeNext is comlpetly Free and Open Source forever, I beleive in the philosophy of software that supports the users freedoms.
+
+This project it now licensed under the GPL3 license requiring any derividevs or software using the project to also be released under GPL3 and open source.
+
+So, why should you trust me? well... You can read the code! If you have any concerns over security you can file an issue and I will try to answer in a timely manner.
+
+The license can be found under **LICENSE.TXT**
