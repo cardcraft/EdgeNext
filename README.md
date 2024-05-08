@@ -46,10 +46,13 @@ Well, I tried, but no matter what I did, the site would just say I can't publish
 
 ![GPL3 License Logo](Markdown/gplv3-127x51.png)
 
-EdgeNext is comlpetly Free and Open Source forever, I beleive in the philosophy of software that supports the users freedoms.
+EdgeNext is completely free and open-source forever; I believe in the philosophy of software 
+that supports users' freedoms.
 
-This project it now licensed under the GPL3 license requiring any derividevs or software using the project to also be released under GPL3 and open source.
+This project is now licensed under the GPL3 license, requiring any derivatives or software using
+the project to also be released under GPL3 and open-source.
 
-So, why should you trust me? well... You can read the code! If you have any concerns over security you can file an issue and I will try to answer in a timely manner.
+So, why should you trust me? Well... You can read the code! If you have any concerns over 
+security, you can file an issue, and I will try to answer in a timely manner.
 
 The license can be found under **LICENSE.TXT**
