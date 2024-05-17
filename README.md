@@ -1,23 +1,6 @@
-# EdgeNext
-
 ![Simple blue header with NextEdge :) written on it and a disclaimer](Markdown/Banner.jpeg "header")
 
-## Doesn't work on Chrome!
-
-After some reaserch I found out that chrome has some serious "security" and restricions on these scripts's access to the system. In order for it to ever work on chrome I (or someone) would have to write a Chrome plugin and get it verified by Google.
-
-**Unless Chrome changes things you can use Firefox or Chromium, The plugin is tested on FF**
-
-#### Psa! My reddit acct got banned :(
-
-My reddit account got shadowbanned :(. I requested an appeal but until then r/nextedge and my account are dead
-
-If you have questions you can file an issue or dm me at Twitter(X??): [Here](https://twitter.com/cardcraft_dev)
-
-Firefox: Working
-Chrome: Broke :(
-
-### The New EdgeNext Userscript, By a Nerd for Nerds
+# The New EdgeNext Userscript, By a Nerd for Nerds
 
 Recently, Edgenuity has implemented some (bad) checks for userscripts. Of course, they could always just make their courses better, but... **NOPE!**
 They decided that we should just suffer more.
@@ -26,6 +9,18 @@ I'm working on a new userscript that's made to be as undetectable as possible. A
 more features that other similar projects had.
 
 At the moment, it can automatically go to the next slide when the current one is finished and allows you to click while the intro is still rolling.
+
+### Notices:
+
+#### Auto Advance broken.
+
+edgenuity implemented detection for autoadvance. currently I just disabled it, will fix soon :)
+
+#### Doesn't work on Chrome/Edge
+
+Chrome implements restrictions for security that I cannot bypass. use chromium or firefox
+
+Firefox is better because I develop it on there
 
 ### Installation
 
@@ -46,13 +41,13 @@ Well, I tried, but no matter what I did, the site would just say I can't publish
 
 ![GPL3 License Logo](Markdown/gplv3-127x51.png)
 
-EdgeNext is completely free and open-source forever; I believe in the philosophy of software 
+EdgeNext is completely free and open-source forever; I believe in the philosophy of software
 that supports users' freedoms.
 
 This project is now licensed under the GPL3 license, requiring any derivatives or software using
 the project to also be released under GPL3 and open-source.
 
-So, why should you trust me? Well... You can read the code! If you have any concerns over 
+So, why should you trust me? Well... You can read the code! If you have any concerns over
 security, you can file an issue, and I will try to answer in a timely manner.
 
 The license can be found under **LICENSE.TXT**
