@@ -77,8 +77,11 @@
 <body>
 	<div class="title">EdgeNext</div>
 	<div class="inputs">
-		<div class="cent">
-			<input class="input" type="checkbox" name="advance" id="advance">
+
+
+
+		<div class="cent" style="opacity: 30%;">
+			<input class="input" type="checkbox" name="advance" id="advance" disabled>
 			<label for="advance">Auto Advance | Only for brackets</label>
 		</div>
 		<div class="cent">
@@ -93,6 +96,21 @@
 			<input class="input" type="checkbox" name="shutup" id="shutup">
 			<label for="shutup">SHUT UP!! | Stops notification</label>
 		</div>
+
+		<div class="cent" style="font-size: 14px;">🛑Edgenuity detected auto advance! will fix soon🛑</div>
+		<div class="cent" style="font-size: 14px;">Read more <a href="https://github.com/cardcraft/EdgeNext/issues/2" target="_blank">here</a></div>
+
+		<!-- WIP stuff. sneak peek for you mr source snooper -->
+
+		<!-- <div class="cent">
+			<input class="input" type="checkbox" name="more-height" id="more-height">
+			<label for="more-height">Set Viewport Height | Amount </label>
+			<span>
+				<input type="number" min="0" max="100" value="75" style="width: 60px; height: 20px;" id="height-amount"> px
+			</span>
+		</div> -->
+
+
 		<div class="cent">
 			<button onclick="window.close();">Close</button>
 		</div>
@@ -114,7 +132,7 @@
 			</svg>
 		</div>
 	</div>
-	<div style="position: absolute; bottom:10px; right:10px; fnot-size: 10px;">V0.0.1</div>
+	<div style="position: absolute; bottom:10px; right:10px;">${version_num}</div>
 </body>
 
 </html>

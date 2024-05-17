@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         EdgeNext
 // @namespace    https://github.com/cardcraft/EdgeNext
-// @version      0.0.2
+// @version      0.0.3
 // @description  Adds tweaks to edgenuity in a more sneaky way
 // @author       Anon
 // @updateURL    https://raw.githubusercontent.com/cardcraft/EdgeNext/main/EdgeNext.js
@@ -13,9 +13,7 @@
 
 // Some code is based off the legendary EdgenTweaks
 
-const version_num = "1.5.6";
-var $, jQuery;
-$ = jQuery = window.jQuery;
+const version_num = "0.0.3";
 
 var UI_initialized = false
 var popwindow
@@ -99,8 +97,11 @@ var Settings_html = `
 <body>
 	<div class="title">EdgeNext</div>
 	<div class="inputs">
-		<div class="cent">
-			<input class="input" type="checkbox" name="advance" id="advance">
+
+
+
+		<div class="cent" style="opacity: 30%;">
+			<input class="input" type="checkbox" name="advance" id="advance" disabled>
 			<label for="advance">Auto Advance | Only for brackets</label>
 		</div>
 		<div class="cent">
@@ -115,6 +116,21 @@ var Settings_html = `
 			<input class="input" type="checkbox" name="shutup" id="shutup">
 			<label for="shutup">SHUT UP!! | Stops notification</label>
 		</div>
+
+		<div class="cent" style="font-size: 14px;">🛑Edgenuity detected auto advance! will fix soon🛑</div>
+		<div class="cent" style="font-size: 14px;">Read more <a href="https://github.com/cardcraft/EdgeNext/issues/2" target="_blank">here</a></div>
+
+		<!-- WIP stuff. sneak peek for you mr source snooper -->
+
+		<!-- <div class="cent">
+			<input class="input" type="checkbox" name="more-height" id="more-height">
+			<label for="more-height">Set Viewport Height | Amount </label>
+			<span>
+				<input type="number" min="0" max="100" value="75" style="width: 60px; height: 20px;" id="height-amount"> px
+			</span>
+		</div> -->
+
+
 		<div class="cent">
 			<button onclick="window.close();">Close</button>
 		</div>
@@ -136,7 +152,7 @@ var Settings_html = `
 			</svg>
 		</div>
 	</div>
-	<div style="position: absolute; bottom:10px; right:10px; fnot-size: 10px;">V0.0.2</div>
+	<div style="position: absolute; bottom:10px; right:10px;">${version_num}</div>
 </body>
 
 </html>
@@ -173,13 +189,25 @@ function skipIntro() {
 
 
 // Auto Advance
+
 function autoadvance() {
+
+	var iframe = document.getElementById('stageFrame');
+	// var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+
 	setTimeout(() => {
+
 		try {
-			// For some reason this returns an error. It works tho so idk
-			API.FrameChain.nextFrame();
+
+			console.log(iframe.contentDocument.getElementById("frame_video_controls").style.display != block)
+
+			if (iframe.contentDocument.getElementById("frame_video_controls").style.display != block) { } else {
+				// For some reason this returns an error. It works tho so idk
+				console.log("Autoadvance ran")
+				API.FrameChain.nextFrame();
+			}
 		} catch (error) { }
-	}, Math.floor(Math.random() * 5000));
+	}, Math.floor(Math.random() * 3000));
 }
 
 // Show Example Response
@@ -192,7 +220,7 @@ function ShowExample() {
 	} catch (TypeError) { }
 }
 
-// Save and load the user settings
+// Save user settings
 function save() {
 	try {
 		const inputElements = popwindow.document.getElementsByClassName("input");
@@ -206,9 +234,12 @@ function save() {
 			}
 		}
 
+		// localStorage.setItem("height-amount", popwindow.document.getElementById("height-amount").value.toString());
+
 	} catch (error) { }
 }
 
+// Load user settings
 function load() {
 	try {
 		const inputElements = popwindow.document.getElementsByClassName("input");
@@ -220,17 +251,26 @@ function load() {
 			} else if (localStorage.getItem(i.toString()) === "false") {
 				element.checked = false;
 			}
+
 		}
+
+		// popwindow.document.getElementById("height-amount").value = parseInt(localStorage.getItem("height-amount"));
 
 	} catch (error) { }
 }
 
+function set_height(new_height) {
+	new_height = new_height.toString();
+	document.getElementById("main_area").style["height"] = new_height + "px";
+	document.getElementById("main_area").style["background-color"] = "white"
+}
 
 // The main loop that executes every 2 seconds
 function loop() {
-	if (localStorage.getItem(0) === "true") { autoadvance(); };
+	// if (localStorage.getItem(0) === "true") { autoadvance(); };
 	if (localStorage.getItem(1) === "true") { ShowExample(); };
 	if (localStorage.getItem(2) === "true") { skipIntro(); };
+	// if (localStorage.getItem(3) === "true") {set_height(localStorage.getItem("height-amount"))}
 
 	save();
 	load();
