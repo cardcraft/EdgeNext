@@ -1,0 +1,23 @@
+<div id="container"
+	style="bottom: 8px; right: 8px; position: absolute; padding: 4px; background-color: #262627; width: 100px; color: white; z-index: 9999;"
+	onclick="
+	if (document.getElementById('child').style.display == 'none') 
+	{document.getElementById('child').style.display = 'block'; document.getElementById('container').style.width = '350px'}
+	else {document.getElementById('child').style.display = 'none'; document.getElementById('container').style.width = '100px'}
+	">
+	⚠️ Info
+	<div id="child" style="padding: 8px; display: none; height: 400px; width: 350px;">
+		<div style="width: 100%; text-align: center; word-wrap: break-word;">
+			Version 0.0.4<br><br>		
+			The first release since break, its a doozy.<br>
+			The main roadmap going forwards is fixing things that are currently down<br>
+			(I swear I'm working on auto-advance)<br><br> Also working on <b>EdgeEX</b> support<br>
+			Currently, auto advance has become available with EdgeEX<br><br><br>
+			
+			For settings and more information click <b>Ctrl+Alt+a</b> (lowercase)<br>
+			This will open a settings menu <br>
+			(popups must be enabled) <br>
+			(may not work on chrome(ium))
+		</div>
+	</div>
+</div>

@@ -1,19 +1,19 @@
 // ==UserScript==
 // @name         EdgeNext
 // @namespace    https://github.com/cardcraft/EdgeNext
-// @version      0.0.3
+// @version      0.0.4
 // @description  Adds tweaks to edgenuity in a more sneaky way
 // @author       Anon
 // @updateURL    https://raw.githubusercontent.com/cardcraft/EdgeNext/main/EdgeNext.js
 // @downloadURL  https://raw.githubusercontent.com/cardcraft/EdgeNext/main/EdgeNext.js
-// @match        *://*.core.learn.edgenuity.com/*
+// @match        *://*.edgenuity.com/*
 // @match        https://student.edgenuity.com/*
 // @grant        none
 // ==/UserScript==
 
 // Some code is based off the legendary EdgenTweaks
 
-const version_num = "0.0.3";
+const version_num = "0.0.4";
 
 var UI_initialized = false
 var popwindow
@@ -64,6 +64,10 @@ var Settings_html = `
 			text-align: center;
 		}
 
+		.lowpadding {
+			padding-bottom: 8px;
+		}
+
 		.footer {
 			height: 100px;
 			width: 100vw;
@@ -98,7 +102,10 @@ var Settings_html = `
 	<div class="title">EdgeNext</div>
 	<div class="inputs">
 
+		<div class="cent lowpadding" style="font-size: 14px;">🛑Edgenuity detected auto advance! will fix soon🛑</div>
+		<div class="cent lowpadding" style="font-size: 14px;">Read more <a href="https://github.com/cardcraft/EdgeNext/issues/2" target="_blank">here</a></div>
 
+		<div class="cent" style="font-size: 18px;">Standard Edgenuity</div>
 
 		<div class="cent" style="opacity: 30%;">
 			<input class="input" type="checkbox" name="advance" id="advance" disabled>
@@ -117,8 +124,19 @@ var Settings_html = `
 			<label for="shutup">SHUT UP!! | Stops notification</label>
 		</div>
 
-		<div class="cent" style="font-size: 14px;">🛑Edgenuity detected auto advance! will fix soon🛑</div>
-		<div class="cent" style="font-size: 14px;">Read more <a href="https://github.com/cardcraft/EdgeNext/issues/2" target="_blank">here</a></div>
+		<div class="cent" style="font-size: 18px;">EdgeEX</div>
+
+		<div class="cent">
+			<input class="input" type="checkbox" name="EX-autoadvance" id="EX-autoadvance">
+			<label for="EX-autoadvance">Auto Advance | Only for brackets</label>
+		</div>
+
+		<div class="cent" style="font-size: 18px;">System</div>
+
+		<div class="cent">
+			<input class="input" type="checkbox" name="logininfo" id="logininfo">
+			<label for="logininfo">Hide Login-Screen info</label>
+		</div>
 
 		<!-- WIP stuff. sneak peek for you mr source snooper -->
 
@@ -158,6 +176,32 @@ var Settings_html = `
 </html>
 `
 
+var Info_html = `
+<div id="container"
+	style="bottom: 8px; right: 8px; position: absolute; padding: 4px; background-color: #262627; width: 100px; color: white; z-index: 9999;"
+	onclick="
+	if (document.getElementById('child').style.display == 'none')
+	{document.getElementById('child').style.display = 'block'; document.getElementById('container').style.width = '350px'}
+	else {document.getElementById('child').style.display = 'none'; document.getElementById('container').style.width = '100px'}
+	">
+	⚠️ Info
+	<div id="child" style="padding: 8px; display: none; height: 400px; width: 350px;">
+		<div style="width: 100%; text-align: center; word-wrap: break-word;">
+			Version 0.0.4<br><br>
+			The first release since break, its a doozy.<br>
+			The main roadmap going forwards is fixing things that are currently down<br>
+			(I swear I'm working on auto-advance)<br><br> Also working on <b>EdgeEX</b> support<br>
+			Currently, auto advance has become available with EdgeEX<br>
+
+			For settings and more information click <b>Ctrl+Alt+a</b> (lowercase)<br>
+			This will open a settings menu <br>
+			(popups must be enabled) <br>
+			(may not work on chrome(ium))
+		</div>
+	</div>
+</div>
+`
+
 // Shorcut to open settings popup
 document.addEventListener("keydown", function (event) {
 	if (event.ctrlKey && event.altKey && event.key === "a") {
@@ -165,10 +209,12 @@ document.addEventListener("keydown", function (event) {
 	}
 });
 
+// Add info to login-screen
+if (localStorage.getItem(5) === "false") {document.body.insertAdjacentHTML('afterbegin', Info_html)}
 // Open settings popup
 function openSettings() {
 
-	let params = `scrollbars=no,resizable=0,status=no,location=no,toolbar=0,menubar=no, width=450,height=550,left=-1000,top=-1000`;
+	let params = `scrollbars=no,resizable=0,status=no,location=no,toolbar=0,menubar=no, width=450,height=700,left=-1000,top=-1000`;
 
 	popwindow = window.open("", "about:blank", params);
 	popwindow.document.getElementsByTagName('body')[0].innerHTML = '';
@@ -187,6 +233,19 @@ function skipIntro() {
 	} catch (TypeError) { }
 }
 
+// Function to check whether video is done playing
+function VideoDone() {
+	try {
+		var timeStr = iframe.contentDocument.getElementById("uid1_time").innerText;
+
+		if (!timeStr || timeStr.length < 3) { return false; };
+		const [left, right] = timeStr.split('/');
+
+		return left.replace(/\s+/g, '').trim() === right.replace(/\s+/g, '').trim();
+	} catch (error) {
+		return true
+	}
+}
 
 // Auto Advance
 
@@ -208,6 +267,18 @@ function autoadvance() {
 			}
 		} catch (error) { }
 	}, Math.floor(Math.random() * 3000));
+}
+
+// EdgeEX implementation
+
+function EXautoadvance() {
+	// Grab the next button
+	var ex_next_button = document.getElementsByClassName("MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary")[0]
+
+	// click it if its enabled :)
+	if (ex_next_button != undefined && !ex_next_button.hasAttribute('disabled')) {
+		ex_next_button.click()
+	}
 }
 
 // Show Example Response
@@ -262,17 +333,41 @@ function load() {
 function set_height(new_height) {
 	new_height = new_height.toString();
 	document.getElementById("main_area").style["height"] = new_height + "px";
-	document.getElementById("main_area").style["background-color"] = "white"
+	document.getElementById("main_area").style["background-color"] = "white";
+
+// Check for elements that only exists in EdgeEX
+function is_edgex() {
+	if (document.getElementsByClassName("vjs-control-bar").length > 0) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function is_login() {
+	if (document.getElementsByClassName("MuiTypography-root MuiTypography-h1").length > 0) {
+		console.log("login detected")
+    this is a stupid peice of text because i want to break shit
+	}
 }
 
 // The main loop that executes every 2 seconds
-function loop() {
-	// if (localStorage.getItem(0) === "true") { autoadvance(); };
-	if (localStorage.getItem(1) === "true") { ShowExample(); };
-	if (localStorage.getItem(2) === "true") { skipIntro(); };
-	// if (localStorage.getItem(3) === "true") {set_height(localStorage.getItem("height-amount"))}
+// var ex_next_button = document.getElementsByClassName("MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary")
 
-	save();
+function loop() {
+
+// Stuff for EdgeEX, naimly auto-advance
+	if (is_edgex()) {
+		if (localStorage.getItem(4) === "true") { EXautoadvance(); };
+	}
+// Stuff for normal-non Ex edge
+	else {
+		// if (localStorage.getItem(0) === "true") { autoadvance(); };
+		if (localStorage.getItem(1) === "true") { ShowExample(); };
+		if (localStorage.getItem(2) === "true") { skipIntro(); };
+		// if (localStorage.getItem(3) === "true") {set_height(localStorage.getItem("height-amount"))}
+	}
+	
 	load();
 
 }

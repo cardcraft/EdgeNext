@@ -2,7 +2,7 @@
 
 # The New EdgeNext Userscript, By a Nerd for Nerds
 
-Recently, Edgenuity has implemented some (bad) checks for userscripts. Of course, they could always just make their courses better, but... **NOPE!**
+Recently, Edgenuity has implemented some checks for userscripts. Of course, they could always just make their courses better, but... **NOPE!**
 They decided that we should just suffer more.
 
 I'm working on a new userscript that's made to be as undetectable as possible. At the moment, there isn't much going on with it, but I plan to add some
@@ -10,11 +10,19 @@ more features that other similar projects had.
 
 At the moment, it can automatically go to the next slide when the current one is finished and allows you to click while the intro is still rolling.
 
+Also, for anyone here expecting some magical auto-answering or cheating plugin, this isn't it. All this plugin has are qol improvments to makes things go by smoother
+
 ### Notices:
 
 #### Auto Advance broken.
 
 edgenuity implemented detection for autoadvance. currently I just disabled it, will fix soon :)
+
+#### Huzzah!! A new update
+
+First time since break, its a decent update. added auto advance for EdgeEX.
+
+Still working on normal auto advance for normal edge, they made it hard 😕
 
 #### Doesn't work on Chrome/Edge
 
