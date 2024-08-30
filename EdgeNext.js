@@ -204,7 +204,7 @@ var Info_html = `
 
 // Shorcut to open settings popup
 document.addEventListener("keydown", function (event) {
-	if (event.ctrlKey && event.altKey && event.key === "a") {
+	if (event.ctrlKey && event.altKey && event.key === "a" || event.shiftKey && event.key === "/") {
 		openSettings()
 	}
 });
@@ -271,12 +271,17 @@ function autoadvance() {
 
 // EdgeEX implementation
 
+// Assignment types to not autoadvance
+var EX_disabled_types = ["Practice Test", "Test"]
+
 function EXautoadvance() {
 	// Grab the next button
 	var ex_next_button = document.getElementsByClassName("MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary")[0]
+	var Assignment_Title = document.getElementById("activity-title").innerText
 
 	// click it if its enabled :)
-	if (ex_next_button != undefined && !ex_next_button.hasAttribute('disabled')) {
+	// console.log(ex_next_button.innerHTML)
+	if (ex_next_button != undefined && !ex_next_button.hasAttribute('disabled') && ex_next_button.innerText !== "Submit" && !EX_disabled_types.includes(Assignment_Title)) {
 		ex_next_button.click()
 	}
 }
@@ -334,6 +339,7 @@ function set_height(new_height) {
 	new_height = new_height.toString();
 	document.getElementById("main_area").style["height"] = new_height + "px";
 	document.getElementById("main_area").style["background-color"] = "white";
+}
 
 // Check for elements that only exists in EdgeEX
 function is_edgex() {
@@ -347,7 +353,6 @@ function is_edgex() {
 function is_login() {
 	if (document.getElementsByClassName("MuiTypography-root MuiTypography-h1").length > 0) {
 		console.log("login detected")
-    this is a stupid peice of text because i want to break shit
 	}
 }
 
@@ -355,6 +360,8 @@ function is_login() {
 // var ex_next_button = document.getElementsByClassName("MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary")
 
 function loop() {
+
+	console.log("running loop")
 
 // Stuff for EdgeEX, naimly auto-advance
 	if (is_edgex()) {
@@ -367,7 +374,7 @@ function loop() {
 		if (localStorage.getItem(2) === "true") { skipIntro(); };
 		// if (localStorage.getItem(3) === "true") {set_height(localStorage.getItem("height-amount"))}
 	}
-	
+	save();
 	load();
 
 }
